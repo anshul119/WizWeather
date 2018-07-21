@@ -1,0 +1,9 @@
+@import 'colors.scss';
+
+.header {
+	background-color: map-get($palette, accent);
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}

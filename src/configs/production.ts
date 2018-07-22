@@ -5,7 +5,7 @@ const config: IConfig = {
 	api: {
 		protocol: 'https:',
 		host: 'api.openweathermap.org',
-		weather: '/data/2.5',
+		weather: '/data/2.5'
 	}
 }
 

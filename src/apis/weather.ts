@@ -1,9 +1,16 @@
 import { buildRequest, RequestMethod } from 'apis/index';
 import configs from 'configs/production';
 
+export enum units {
+	METRIC = 'metric',
+	IMPERIAL = 'imperial'
+}
+
 export interface IGetCurrentWeatherParameters {
-	q: string;
+	q?: string;
+	id?: number;
 	appid: string;
+	units?: units;
 }
 
 export interface IGetCurrentWeatherResponse {

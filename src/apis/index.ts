@@ -31,8 +31,7 @@ export interface IRequestOptions {
  * @returns {Promise<T>}
  */
 export const buildRequest = (options: IRequestOptions): Promise<any> => {
-	const { api, pathname, method } = options;
-	let { parameters } = options;
+	const { api, pathname, parameters, method } = options;
 
 	/**
 	 * Request URL is the URL that we will call and all the variable is replaced to values

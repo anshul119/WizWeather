@@ -1,0 +1,90 @@
+@import 'colors.scss';
+
+.weathercard {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	flex-basis: 23%;
+	color: white;
+	padding: 1rem;
+	background-size: cover;
+	background-position: left;
+	margin-bottom: 5rem;
+	transition: 500ms;
+	transition-timing-function: ease-in-out;
+	cursor: pointer;
+
+	&:hover {
+		background-position-x: 50%;
+	}
+
+	&:after {
+		content: '';
+		background: rgba(black, 0.5);
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	&__content {
+		width: 100%;
+		z-index: 1;
+	}
+
+	&__top {
+		margin-bottom: 4rem;
+	}
+
+	&__title {
+		font-size: 2rem;
+		font-weight: 400;
+	}
+
+	&__description {
+		font-size: 1.4rem;
+		font-weight: 300;
+	}
+
+	&__bottom {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+
+	&__icon {
+		font-size: 3.6rem;
+		margin-bottom: 0.5rem;
+	}
+
+	&__condition {
+		font-size: 1.4rem;
+		font-weight: 300;
+	}
+
+	&__temperature {
+		font-size: 2.4rem;
+	}
+
+	&__unitsign {
+		font-size: 1.6rem;
+	}
+}
+
+//tablet
+
+@media (max-width: 1024px) {
+	.weathercard {
+		flex-basis: 48%;
+	}
+}
+
+//mobile
+
+@media (max-width: 480px) {
+	.weathercard {
+		flex-basis: 100%;
+	}
+}

@@ -4,8 +4,8 @@ export interface ICurrentWeatherProps extends IGetCurrentWeatherResponse {}
 
 export interface ICurrentWeather {
 	readonly id: number;
+	readonly weatherId: number;
 	readonly city: string;
-	readonly iconCode: string;
 	readonly temperature: number;
 	readonly condition: string;
 	readonly description: string;
@@ -25,12 +25,12 @@ export class CurrentWeather implements ICurrentWeather {
 		return this.props.id;
 	}
 
-	get city() {
-		return this.props.name;
+	get weatherId() {
+		return this.props.weather[0].id;
 	}
 
-	get iconCode() {
-		return this.props.weather[0].icon;
+	get city() {
+		return this.props.name;
 	}
 
 	get temperature() {

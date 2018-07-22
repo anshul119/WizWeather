@@ -1,0 +1,24 @@
+.forecastcard {
+	display: flex;
+	flex-basis: 23%;
+	margin-bottom: 1rem;
+	justify-content: space-between;
+	padding: 1rem;
+	background-color: wheat;
+}
+
+//tablet
+
+@media (max-width: 1024px) {
+	.forecastcard {
+		flex-basis: 32%;
+	}
+}
+
+//mobile
+
+@media (max-width: 480px) {
+	.forecastcard {
+		flex-basis: 48%;
+	}
+}

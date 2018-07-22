@@ -4,19 +4,87 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = environment => {
 	const isProd = 'production'.indexOf(environment) !== -1;
 	return {
-		entry:  path.join(__dirname, 'src', 'index.tsx'),
+		entry: path.join(__dirname, 'src', 'index.tsx'),
 		output: {
 			filename: 'bundle.js',
 			path: path.join(__dirname, 'dist')
 		},
 		devtool: 'source-map',
 		resolve: {
-			extensions: ['.ts', '.tsx', '.js', '.json']
+			extensions: ['.ts', '.tsx', '.js', '.json'],
+			alias: {
+				apis: path.join(__dirname, 'src', 'apis'),
+				assets: path.join(__dirname, 'src', 'assets'),
+				configs: path.join(__dirname, 'src', 'configs'),
+				containers: path.join(__dirname, 'src', 'containers'),
+				components: path.join(__dirname, 'src', 'components'),
+				models: path.join(__dirname, 'src', 'models'),
+				services: path.join(__dirname, 'src', 'services'),
+				styles: path.join(__dirname, 'src', 'styles')
+			}
 		},
 		module: {
 			rules: [
 				{ test: /\.tsx?$/, exclude: /node_modules/, loader: 'ts-loader' },
-				{ enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' }
+				{ enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
+				{
+					test: /\.(eot|ttf|woff|woff2)$/,
+					use: [
+						{
+							loader: 'file-loader',
+							options: {
+								name: 'assets/fonts/[hash].[ext]'
+							}
+						}
+					]
+				},
+				{
+					test: /\.css$/,
+					use: [
+						{ loader: 'style-loader' },
+						{ loader: 'css-loader' },
+						{ loader: 'csso-loader' },
+						{
+							loader: 'postcss-loader',
+							options: {
+								plugins: loader => [
+									require('postcss-url')({
+										url: 'inline'
+									})
+								]
+							}
+						}
+					]
+				},
+				{
+					test: /\.scss$/,
+					use: [
+						{ loader: 'style-loader' },
+						{ loader: 'css-loader' },
+						{
+							loader: 'postcss-loader',
+							options: {
+								plugins: loader => [
+									require('autoprefixer')({
+										browsers: '>1%, ie>=11, not op_mini all'
+									})
+								]
+							}
+						},
+						{ loader: 'sass-loader' }
+					]
+				},
+				{
+					test: /\.(jpe?g|png|gif|svg)$/,
+					use: [
+						{
+							loader: 'file-loader',
+							options: {
+								name: 'assets/[hash].[ext]'
+							}
+						}
+					]
+				}
 			].concat(isProd ? [] : [{ test: /\.tsx?$/, exclude: /node_modules/, loader: 'tslint-loader' }])
 		},
 		plugins: [
@@ -36,7 +104,7 @@ module.exports = environment => {
 					},
 					isProd ? { filename: path.join(__dirname, 'dist', 'index.html') } : null
 				)
-			),
+			)
 		],
 		devServer: {
 			contentBase: path.join(__dirname, 'dist'),

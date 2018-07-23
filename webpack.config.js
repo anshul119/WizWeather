@@ -26,7 +26,22 @@ module.exports = environment => {
 		},
 		module: {
 			rules: [
-				{ test: /\.tsx?$/, exclude: /node_modules/, loader: 'ts-loader' },
+				{
+					test: /\.(ts|tsx|js)$/,
+					exclude: /node_modules/,
+					use: [
+						{
+							loader: 'babel-loader',
+							options: {
+								presets: ['es2015', 'react'],
+								plugins: [isProd ? [] : ['react-hot-loader/babel']]
+							}
+						},
+						{
+							loader: 'ts-loader'
+						}
+					]
+				},
 				{ enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
 				{
 					test: /\.(eot|ttf|woff|woff2)$/,

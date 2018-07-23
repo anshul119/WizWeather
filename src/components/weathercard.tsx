@@ -10,6 +10,7 @@ interface IWeatherCardProps {
 	temperature: number;
 	condition: string;
 	description: string;
+	active: boolean;
 	onClick: (id: number) => void;
 }
 
@@ -18,7 +19,7 @@ export default class WeatherCard extends React.Component<IWeatherCardProps, {}> 
 		return (
 			<div
 				onClick={this.props.onClick.bind(null, this.props.id)}
-				className="weathercard"
+				className={`weathercard ${this.props.active ? 'weathercard--active' : ''}`}
 				style={this.props.background ? { backgroundImage: `url(${this.props.background})` } : { background: '#000' }}
 			>
 				<div className="weathercard__content">

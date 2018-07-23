@@ -1,4 +1,5 @@
 @import 'colors.scss';
+@import 'vars.scss';
 
 .weathercard {
 	position: relative;
@@ -10,12 +11,16 @@
 	background-size: cover;
 	background-position: left;
 	margin-bottom: 5rem;
-	transition: 500ms;
+	transition: 300ms;
 	transition-timing-function: ease-in-out;
 	cursor: pointer;
 
+	&--active {
+		transform: scale(1.1);
+	}
+
 	&:hover {
-		background-position-x: 50%;
+		opacity: 0.8;
 	}
 
 	&:after {
@@ -34,7 +39,7 @@
 	}
 
 	&__top {
-		margin-bottom: 4rem;
+		margin-bottom: 2rem;
 	}
 
 	&__title {
@@ -75,7 +80,7 @@
 
 //tablet
 
-@media (max-width: 1024px) {
+@media (max-width: map-get($breakpoints, tablet)) {
 	.weathercard {
 		flex-basis: 48%;
 	}
@@ -83,7 +88,7 @@
 
 //mobile
 
-@media (max-width: 480px) {
+@media (max-width: map-get($breakpoints, mobile)) {
 	.weathercard {
 		flex-basis: 100%;
 	}

@@ -60,7 +60,7 @@ export class Forecast implements IForecast {
 	}
 
 	get rain() {
-		return this.props.rain["3h"];
+		return this.props.rain['3h'];
 	}
 
 	get time() {

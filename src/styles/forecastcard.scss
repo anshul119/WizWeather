@@ -1,15 +1,43 @@
+@import 'colors.scss';
+@import 'vars.scss';
+@import 'animations.scss';
+
 .forecastcard {
 	display: flex;
 	flex-basis: 23%;
 	margin-bottom: 1rem;
 	justify-content: space-between;
 	padding: 1rem;
-	background-color: wheat;
+	color: map-get($palette, black);
+	background-color: map-get($palette, forecastcard-bg);
+	flex-direction: column;
+	animation-name: fadein;
+	animation-duration: 300ms;
+	animation-timing-function: ease;
+
+	&__top {
+		margin-bottom: 1rem;
+		align-items: center;
+	}
+
+	&__bottom {
+		align-items: flex-end;
+	}
+
+	&__top,
+	&__bottom {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__icon {
+		font-size: 2.6rem;
+	}
 }
 
 //tablet
 
-@media (max-width: 1024px) {
+@media (max-width: map-get($breakpoints, tablet)) {
 	.forecastcard {
 		flex-basis: 32%;
 	}
@@ -17,7 +45,7 @@
 
 //mobile
 
-@media (max-width: 480px) {
+@media (max-width: map-get($breakpoints, mobile)) {
 	.forecastcard {
 		flex-basis: 48%;
 	}

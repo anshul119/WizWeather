@@ -1,4 +1,6 @@
-# [React](https://wizweather.herokuapp.com/)
+# [WizWeather](https://wizweather.herokuapp.com/)
+
+See WizWeather in Action here: https://wizweather.herokuapp.com/
 
 WizWeather is a weather data app which is making use of OpenWeatherMap API under the hood. It has bene made purely with React with TypeScript.
 

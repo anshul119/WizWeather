@@ -1,17 +1,20 @@
 {
 	"compilerOptions": {
-		"outDir": "./dist/",
-		"sourceMap": true,
-		"noImplicitAny": true,
-		"allowSyntheticDefaultImports": true,
-		"moduleResolution": "node",
 		"module": "es6",
 		"target": "es6",
-		"jsx": "react",
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": "./",
+		"sourceMap": true,
+		"outDir": "ts-build",
+		"jsx": "preserve",
+		"strict": true,
+		"moduleResolution": "node",
 		"allowJs": true,
 		"noErrorTruncation": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true
 	},
-	"exclude": ["node_modules"]
+	"exclude": [
+		"node_modules"
+	]
 }

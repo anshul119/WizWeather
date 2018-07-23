@@ -12,7 +12,7 @@ module.exports = environment => {
 		},
 		devtool: 'source-map',
 		resolve: {
-			extensions: ['.ts', '.tsx', '.js', '.json'],
+			extensions: ['.ts', '.tsx', '.js', '.json', '.scss'],
 			alias: {
 				apis: path.join(__dirname, 'src', 'apis'),
 				assets: path.join(__dirname, 'src', 'assets'),
@@ -33,8 +33,7 @@ module.exports = environment => {
 						{
 							loader: 'babel-loader',
 							options: {
-								presets: ['es2015', 'react'],
-								plugins: [isProd ? [] : ['react-hot-loader/babel']]
+								presets: ['es2015', 'react']
 							}
 						},
 						{
@@ -101,7 +100,17 @@ module.exports = environment => {
 						}
 					]
 				}
-			].concat(isProd ? [] : [{ test: /\.tsx?$/, exclude: /node_modules/, loader: 'tslint-loader' }])
+			].concat(
+				isProd
+					? []
+					: [
+							{
+								test: /\.(ts|tsx)/,
+								exclude: /node_modules/,
+								use: [{ loader: 'tslint-loader' }]
+							}
+					  ]
+			)
 		},
 		plugins: [
 			new HtmlWebpackPlugin(
@@ -136,7 +145,7 @@ module.exports = environment => {
 					yandex: false,
 					windows: false
 				}
-			}),
+			})
 		],
 		devServer: {
 			contentBase: path.join(__dirname, 'dist'),

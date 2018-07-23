@@ -27,7 +27,7 @@ const cities = ['Paris', 'New York', 'New Delhi', 'Tokyo'];
 export default class WeatherSelector extends React.Component<{}, IWeatherSelectorState> {
 	state: IWeatherSelectorState = {
 		currentWeathers: [],
-		selectedCityId: null,
+		selectedCityId: 0,
 		selectedCity: '',
 		forecasts: [],
 		chartData: {},

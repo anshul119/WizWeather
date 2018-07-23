@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from 'components/header';
-import WeatherSelector from 'containers/WeatherSelector';
+import WeatherSelector from 'containers/weatherselector';
 import 'styles/global.scss';
 
 export default class App extends React.Component<{}, {}> {

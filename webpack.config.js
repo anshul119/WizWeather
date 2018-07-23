@@ -1,5 +1,6 @@
 var path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = environment => {
 	const isProd = 'production'.indexOf(environment) !== -1;
@@ -104,7 +105,23 @@ module.exports = environment => {
 					},
 					isProd ? { filename: path.join(__dirname, 'dist', 'index.html') } : null
 				)
-			)
+			),
+			new FaviconsWebpackPlugin({
+				logo: './src/assets/favicon.png',
+				inject: true,
+				icons: {
+					android: true,
+					appleIcon: false,
+					appleStartup: false,
+					coast: false,
+					favicons: true,
+					firefox: false,
+					opengraph: false,
+					twitter: false,
+					yandex: false,
+					windows: false
+				}
+			}),
 		],
 		devServer: {
 			contentBase: path.join(__dirname, 'dist'),

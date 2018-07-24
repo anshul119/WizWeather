@@ -18,5 +18,6 @@ You can also see a line chart with temperature and humidity of upcoming weather 
 
 ## Getting Started
 
+Install dependencies by running `npm i`.
 For running development build on localhost please run `npm run build-dev`.
 Head to `localhost:8080` to witness the magic.

@@ -54,24 +54,6 @@ module.exports = environment => {
 					]
 				},
 				{
-					test: /\.css$/,
-					use: [
-						{ loader: 'style-loader' },
-						{ loader: 'css-loader' },
-						{ loader: 'csso-loader' },
-						{
-							loader: 'postcss-loader',
-							options: {
-								plugins: loader => [
-									require('postcss-url')({
-										url: 'inline'
-									})
-								]
-							}
-						}
-					]
-				},
-				{
 					test: /\.scss$/,
 					use: [
 						{ loader: 'style-loader' },

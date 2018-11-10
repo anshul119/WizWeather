@@ -1,7 +1,5 @@
 # [WizWeather](https://wizweather.herokuapp.com/)
 
-See WizWeather in Action here: https://wizweather.herokuapp.com/
-
 WizWeather is a weather data app which is making use of OpenWeatherMap API under the hood. It has bene made purely with React with TypeScript.
 
 By using interfaces and models the application is strongly types making it very easy to catch the errors, beauty of TypeScript.
